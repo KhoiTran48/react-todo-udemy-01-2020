@@ -22,7 +22,7 @@ export default class TaskForm extends Component {
         }
     }
 
-    handleSubmit = (e) =>{
+    handleSubmit = (e) => {
         let deadline = this.state.deadline.valueOf();
         this.props.handleSubmit({...this.state, deadline})
     }
