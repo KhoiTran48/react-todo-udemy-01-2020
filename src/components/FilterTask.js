@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {setFilterTextAction, setOrderAction, setFiltertDateAction} from '../actions/filterAction'
+import {setFilterTextAction, setOrderAction, setFilterDateAction} from '../actions/filterAction'
 import { connect } from 'react-redux';
 import { DateRangePicker } from 'react-dates';
 import moment from 'moment';
@@ -62,7 +62,7 @@ const mapDispatchToProps = dispatch => {
     return {
         setFilterText: (text) => dispatch(setFilterTextAction(text)),
         setOrder: (order) => dispatch(setOrderAction(order)),
-        setFiltertDate: (startDate, endDate) => dispatch(setFiltertDateAction(startDate, endDate))
+        setFiltertDate: (startDate, endDate) => dispatch(setFilterDateAction(startDate, endDate))
     }
 }
 

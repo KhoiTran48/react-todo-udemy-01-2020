@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import TaskInfo from './TaskInfo'
+import selectTask from '../selectors/tasks'
 
 class TaskList extends Component {
     constructor(props){
@@ -20,25 +21,9 @@ class TaskList extends Component {
     }
 }
 
-const filterTask = (listTask, filter) => {
-    return listTask.filter(task=>{
-        const startDateMatch = typeof filter.startDate !== "number" || task.deadline >= filter.startDate
-        const endDateMatch = typeof filter.endDate !== "number" || task.deadline <= filter.endDate
-        const textMatch = task.title.toLowerCase().indexOf(filter.text.toLowerCase()) >= 0
-        return startDateMatch && endDateMatch && textMatch
-    })
-    .sort((a,b)=>{
-        if(filter.order.toLowerCase() == "asc"){
-            return a.deadline < b.deadline ? -1 : 1;
-        }else{
-            return a.deadline < b.deadline ? 1 : -1;
-        }
-    })
-}
-
 const mapStateToProps = state => {
     return {
-        listTask: filterTask(state.listTask, state.filter)
+        listTask: selectTask(state.listTask, state.filter)
     }
 }
 

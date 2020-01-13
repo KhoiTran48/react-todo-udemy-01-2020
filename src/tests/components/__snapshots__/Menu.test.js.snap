@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render Menu correctly 1`] = `
+<div>
+  <NavLink
+    activeClassName="active"
+    aria-current="page"
+    exact={true}
+    to="/"
+  >
+    Dashboard
+  </NavLink>
+  <NavLink
+    activeClassName="active"
+    aria-current="page"
+    to="/add"
+  >
+    Add Task
+  </NavLink>
+</div>
+`;

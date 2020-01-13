@@ -12,7 +12,7 @@ export const setOrderAction = (order)=>(
     }
 )
 
-export const setFiltertDateAction = (startDate, endDate) => (
+export const setFilterDateAction = (startDate, endDate) => (
     {
         type: "SET_DATE",
         startDate,
