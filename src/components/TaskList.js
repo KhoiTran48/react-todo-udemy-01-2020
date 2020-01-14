@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import TaskInfo from './TaskInfo'
 import selectTask from '../selectors/tasks'
 
-class TaskList extends Component {
+export class TaskList extends Component {
     constructor(props){
         super(props)
     }
