@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node server/server.js",
+    "start": "",
     "heroku-postbuild": "npm run build:prod",
     "build:dev": "webpack -w",
     "build:prod": "webpack -p --env prod",

@@ -13,3 +13,5 @@ Cách chạy
 
     npm run test
         run testing
+Link heroku
+    https://todo-2020.herokuapp.com/
