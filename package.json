@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "start": "babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch",
-    "build": "webpack -w",
+    "build:dev": "webpack -w",
+    "build:prod": "webpack -p --env prod",
     "dev-server": "webpack-dev-server -w",
     "test": "jest --config=jest.config.json --watch"
   },
