@@ -42,7 +42,7 @@ test("handle text change", ()=>{
 test("handle select change", ()=>{
     const order = "desc";
     wrapper.find("select").simulate(
-        "change",
+        "change", 
         {target: {value: order}}
     )
     expect(setOrder).toHaveBeenLastCalledWith("desc")
