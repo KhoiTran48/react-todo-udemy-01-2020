@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { DateRangePicker } from 'react-dates';
 import moment from 'moment';
 
-class FilterTask extends Component {
+export class FilterTask extends Component {
     constructor(props){
         super(props);
         let startDate = props.filter.startDate ? moment(props.filter.startDate) : moment()

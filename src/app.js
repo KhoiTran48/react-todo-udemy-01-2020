@@ -6,6 +6,7 @@ import EditTask from './components/EditTask'
 import ErrorPage from './components/ErrorPage'
 import Menu from './components/Menu'
 import 'react-dates/lib/css/_datepicker.css';
+import 'react-dates/initialize';
 
 class App extends Component
 {

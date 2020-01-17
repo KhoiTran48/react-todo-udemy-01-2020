@@ -3,7 +3,7 @@ import TaskForm from './TaskForm'
 import {addTaskAction} from '../actions/taskAction'
 import {connect} from 'react-redux'
 
-class AddTask extends Component {
+export class AddTask extends Component {
     render() {
         return (
             <div>

@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 import {editTaskAction, deleteTaskAction} from '../actions/taskAction'
 
 
-class EditTask extends Component {
+export class EditTask extends Component {
     render() {
         if(!this.props.editTask){
             this.props.history.push("/")
