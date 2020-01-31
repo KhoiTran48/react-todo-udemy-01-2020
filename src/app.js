@@ -8,6 +8,8 @@ import Menu from './components/Menu'
 import 'react-dates/lib/css/_datepicker.css';
 import 'react-dates/initialize';
 
+import './firebase/firebase'
+
 class App extends Component
 {
     render(){

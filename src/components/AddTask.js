@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import TaskForm from './TaskForm'
-import {addTaskAction} from '../actions/taskAction'
+import {addTaskApi} from '../actions/taskAction'
 import {connect} from 'react-redux'
 
 export class AddTask extends Component {
@@ -9,7 +9,7 @@ export class AddTask extends Component {
             <div>
                 <TaskForm
                     handleSubmit = {(taskForm)=>{
-                        this.props.addTaskAction(taskForm)
+                        this.props.addTaskApi(taskForm)
                         this.props.history.push("/")
                     }}                
                 />
@@ -20,7 +20,7 @@ export class AddTask extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        addTaskAction: (task) => dispatch(addTaskAction(task))
+        addTaskApi: (task) => dispatch(addTaskApi(task))
     }
 }
 

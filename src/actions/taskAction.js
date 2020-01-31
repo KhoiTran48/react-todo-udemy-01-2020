@@ -1,11 +1,9 @@
 import uuid from 'uuid'
+import {firebase, database} from '../firebase/firebase'
 
 export const addTaskAction = (newTask) => ({
     type : "ADD_TASK",
-    data : {
-        ...newTask,
-        taskId: uuid(), 
-    }
+    data : newTask
 })
 
 export const editTaskAction = (editTask) => ({
@@ -19,3 +17,12 @@ export const deleteTaskAction = (taskId) => ({
         taskId
     }
 })
+
+export const addTaskApi = (newTask) => {
+    const {taskId, focused, ...taskInfo} = newTask;
+    return (dispatch) => {
+        database.ref("tasks").push({...taskInfo}).then((firebaseTask)=>{
+            dispatch(addTaskAction({...taskInfo, taskId: firebaseTask.key}))
+        })
+    }
+}
