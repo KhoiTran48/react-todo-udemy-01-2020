@@ -2,20 +2,32 @@ const path = require("path")
 const webpack = require("webpack")
 const ExtractTextPlugin = require("extract-text-webpack-plugin")
 
-const NODE_ENV = process.env.NODE_ENV || "development";
-if(NODE_ENV === "test") {
-    require("dotenv").config({
-        path: ".env.test",
-    })
-}else if(NODE_ENV === "development") {
-    require("dotenv").config({
-        path: ".env.development",
-    })
-}
+// const NODE_ENV = process.env.NODE_ENV || "development";
+// if(NODE_ENV === "test") {
+//     require("dotenv").config({
+//         path: ".env.test",
+//     })
+// }else if(NODE_ENV === "development") {
+//     require("dotenv").config({
+//         path: ".env.development",
+//     })
+// }
 
 module.exports = (env)=>{
     const isProd = env === "prod"
     const CSSExtract = new ExtractTextPlugin("styles.css");
+
+    
+    if(isProd) {
+        require("dotenv").config({
+            path: ".env.prod",
+        })
+    }else{
+        require("dotenv").config({
+            path: ".env.development",
+        })
+    }
+
     return {
         entry: './src/index.js',
         output: {
