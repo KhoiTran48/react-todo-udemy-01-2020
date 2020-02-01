@@ -3,11 +3,11 @@ import {AddTask} from '../../components/AddTask'
 import {shallow} from 'enzyme'
 import listTask from '../fixtures/listTask'
 
-let addTaskAction, history, wrapper;
+let addTaskApi, history, wrapper;
 beforeEach(()=>{
-    addTaskAction = jest.fn();
+    addTaskApi = jest.fn();
     history = {push: jest.fn()}
-    wrapper = shallow(<AddTask addTaskAction={addTaskAction} history={history}/>)
+    wrapper = shallow(<AddTask addTaskApi={addTaskApi} history={history}/>)
 })
 
 test("render AddTask", ()=>{
@@ -17,6 +17,6 @@ test("render AddTask", ()=>{
 test("handle submit", ()=>{
     wrapper.find("TaskForm").prop("handleSubmit")(listTask[0]);
     expect(history.push).toHaveBeenLastCalledWith("/");
-    expect(addTaskAction).toHaveBeenLastCalledWith(listTask[0]);
+    expect(addTaskApi).toHaveBeenLastCalledWith(listTask[0]);
 })
 

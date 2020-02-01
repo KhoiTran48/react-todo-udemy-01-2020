@@ -21,7 +21,7 @@ export const deleteTaskAction = (taskId) => ({
 export const addTaskApi = (newTask) => {
     const {taskId, focused, ...taskInfo} = newTask;
     return (dispatch) => {
-        database.ref("tasks").push({...taskInfo}).then((firebaseTask)=>{
+        return database.ref("tasks").push({...taskInfo}).then((firebaseTask)=>{
             dispatch(addTaskAction({...taskInfo, taskId: firebaseTask.key}))
         })
     }
