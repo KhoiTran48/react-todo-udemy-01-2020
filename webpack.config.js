@@ -17,15 +17,14 @@ module.exports = (env)=>{
     const isProd = env === "prod"
     const CSSExtract = new ExtractTextPlugin("styles.css");
 
-    
     if(isProd) {
-        // require("dotenv").config({
-        //     path: ".env.prod",
-        // })
+        require("dotenv").config({
+            path: ".env.prod",
+        })
     }else{
-        // require("dotenv").config({
-        //     path: ".env.development",
-        // })
+        require("dotenv").config({
+            path: ".env.development",
+        })
     }
 
     return {
