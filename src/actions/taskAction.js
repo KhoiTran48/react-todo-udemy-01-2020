@@ -5,18 +5,6 @@ export const addTaskAction = (newTask) => ({
     data : newTask
 })
 
-export const editTaskAction = (editTask) => ({
-    type: "EDIT_TASK",
-    data: editTask
-})
-
-export const deleteTaskAction = (taskId) => ({
-    type: "DELETE_TASK",
-    data: {
-        taskId
-    }
-})
-
 export const addTaskApi = (newTask) => {
     const {taskId, focused, ...taskInfo} = newTask;
     return (dispatch) => {
@@ -26,6 +14,38 @@ export const addTaskApi = (newTask) => {
         })
     }
 }
+
+export const editTaskAction = (editTask) => ({
+    type: "EDIT_TASK",
+    data: editTask
+})
+
+export const editTaskApi = (editTask) => {
+    const {taskId, focused, ...updateTask} = editTask;
+    return dispatch => {
+        database.ref(`tasks/${editTask.taskId}`).update(updateTask).then(()=>{
+            dispatch(editTaskAction(editTask))
+        })
+    }
+}
+
+export const deleteTaskAction = (taskId) => ({
+    type: "DELETE_TASK",
+    data: {
+        taskId
+    }
+})
+
+export const deleteTaskApi = (taskId) => {
+    return dispatch => {
+        return database.ref(`tasks/${taskId}`).remove().then(()=>{
+            dispatch(deleteTaskAction(taskId))
+        })
+    }
+    // database.ref(`tasks/${taskId}`).remove()
+    // return {type:""}
+}
+
 
 export const setTask = (listTask) => ({
     type: "SET_TASK",

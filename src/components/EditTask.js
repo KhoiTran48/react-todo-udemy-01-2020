@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import TaskForm from './TaskForm'
 import {connect} from 'react-redux'
-import {editTaskAction, deleteTaskAction} from '../actions/taskAction'
+import {editTaskApi, deleteTaskApi} from '../actions/taskAction'
 
 
 export class EditTask extends Component {
@@ -13,14 +13,14 @@ export class EditTask extends Component {
             <div>
                 <TaskForm
                     handleSubmit = {(taskForm)=>{
-                        this.props.editTaskAction(taskForm)
+                        this.props.editTaskApiProp(taskForm)
                         this.props.history.push("/")
                     }}  
                     {...this.props.editTask}
                 />
                 <button
                     onClick={()=>{
-                        this.props.deleteTaskAction(this.props.editTask.taskId)
+                        this.props.deleteTaskApiProp(this.props.editTask.taskId)
                         this.props.history.push("/")
                     }}
                 >Delete</button>
@@ -37,8 +37,8 @@ const mapStateToProps = (state, props) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        editTaskAction: (task) => dispatch(editTaskAction(task)),
-        deleteTaskAction: (taskId) => dispatch(deleteTaskAction(taskId))
+        editTaskApiProp: (task) => dispatch(editTaskApi(task)),
+        deleteTaskApiProp: (taskId) => dispatch(deleteTaskApi(taskId))
     }
 }
 
