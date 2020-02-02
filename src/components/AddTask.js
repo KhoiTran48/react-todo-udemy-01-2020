@@ -9,7 +9,7 @@ export class AddTask extends Component {
             <div>
                 <TaskForm
                     handleSubmit = {(taskForm)=>{
-                        this.props.addTaskApi(taskForm)
+                        this.props.addTaskApiProp(taskForm)
                         this.props.history.push("/")
                     }}                
                 />
@@ -20,7 +20,7 @@ export class AddTask extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        addTaskApi: (task) => dispatch(addTaskApi(task))
+        addTaskApiProp: (task) => dispatch(addTaskApi(task))
     }
 }
 

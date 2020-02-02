@@ -15,6 +15,8 @@ const taskReducer = (state=[], action) => {
             return state.filter((task)=>{
                 return task.taskId !== action.data.taskId
             })
+        case "SET_TASK":
+                return action.listTask
         default:
             return state
     }

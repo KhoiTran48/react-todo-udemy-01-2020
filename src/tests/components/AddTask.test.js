@@ -7,7 +7,7 @@ let addTaskApi, history, wrapper;
 beforeEach(()=>{
     addTaskApi = jest.fn();
     history = {push: jest.fn()}
-    wrapper = shallow(<AddTask addTaskApi={addTaskApi} history={history}/>)
+    wrapper = shallow(<AddTask addTaskApiProp={addTaskApi} history={history}/>)
 })
 
 test("render AddTask", ()=>{

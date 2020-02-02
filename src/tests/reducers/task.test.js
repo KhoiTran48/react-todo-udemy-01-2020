@@ -47,4 +47,7 @@ test("delete by no existing id", ()=>{
     expect(updateListTask).toEqual(listTask)
 })
 
-
+test("set task", ()=>{
+    const listTaskStore = taskReducer([], {type:"SET_TASK", listTask})
+    expect(listTaskStore).toEqual(listTask)
+})
