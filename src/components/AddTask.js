@@ -10,7 +10,7 @@ export class AddTask extends Component {
                 <TaskForm
                     handleSubmit = {(taskForm)=>{
                         this.props.addTaskApiProp(taskForm)
-                        this.props.history.push("/")
+                        this.props.history.push("/dashboard")
                     }}                
                 />
             </div>

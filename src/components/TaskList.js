@@ -8,9 +8,9 @@ export class TaskList extends Component {
     constructor(props){
         super(props)
     }
-    componentDidMount(){
-        this.props.setTaskApiProp()
-    }
+    // componentDidMount(){
+    //     this.props.setTaskApiProp()
+    // }
     renderTask(listTask){
         return listTask.map((task, key)=>{
             return <TaskInfo key={key} {...task}/>
@@ -31,10 +31,10 @@ const mapStateToProps = state => {
     }
 }
 
-const mapDispatchToProps = dispatch => {
-    return {
-        setTaskApiProp: ()=>dispatch(setTaskApi())
-    }
-}
+// const mapDispatchToProps = dispatch => {
+//     return {
+//         setTaskApiProp: ()=>dispatch(setTaskApi())
+//     }
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TaskList)
+export default connect(mapStateToProps)(TaskList)

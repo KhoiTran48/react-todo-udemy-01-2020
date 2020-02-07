@@ -7,21 +7,21 @@ import {editTaskApi, deleteTaskApi} from '../actions/taskAction'
 export class EditTask extends Component {
     render() {
         if(!this.props.editTask){
-            this.props.history.push("/")
+            this.props.history.push("/dashboard")
         }
         return (
             <div>
                 <TaskForm
                     handleSubmit = {(taskForm)=>{
                         this.props.editTaskApiProp(taskForm)
-                        this.props.history.push("/")
+                        this.props.history.push("/dashboard")
                     }}  
                     {...this.props.editTask}
                 />
                 <button
                     onClick={()=>{
                         this.props.deleteTaskApiProp(this.props.editTask.taskId)
-                        this.props.history.push("/")
+                        this.props.history.push("/dashboard")
                     }}
                 >Delete</button>
             </div>

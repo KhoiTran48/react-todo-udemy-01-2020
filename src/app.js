@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {BrowserRouter, Route, Switch} from 'react-router-dom'
+import {Router, Route, Switch} from 'react-router-dom'
 import Dashboard from './components/Dashboard'
 import AddTask from './components/AddTask'
 import EditTask from './components/EditTask'
@@ -7,30 +7,36 @@ import ErrorPage from './components/ErrorPage'
 import Menu from './components/Menu'
 import 'react-dates/lib/css/_datepicker.css';
 import 'react-dates/initialize';
+import LoginPage from './components/LoginPage'
+import { createBrowserHistory } from 'history';
+import PrivateRoute from './routes/PrivateRoute'
 
-import './firebase/firebase'
+export const history = createBrowserHistory();
 
 class App extends Component
 {
     render(){
         return (
-            <BrowserRouter>
+            <Router history={history}>
                 <div>
-                    <Menu></Menu>
+                    {/* <Menu></Menu> */}
                     <Switch>
                         <Route
-                            path="/" component={Dashboard} exact 
+                            path="/" component={LoginPage} exact 
                         />
-                        <Route
+                        <PrivateRoute
+                            path="/dashboard" component={Dashboard} exact 
+                        />
+                        <PrivateRoute
                             path="/add" component={AddTask}
                         />
-                        <Route
+                        <PrivateRoute
                             path="/edit/:id" component={EditTask}
                         />
                         <Route component={ErrorPage}/>
                     </Switch>
                 </div>
-            </BrowserRouter>
+            </Router>
         );
     }
 }

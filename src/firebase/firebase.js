@@ -14,8 +14,9 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 const database = firebase.database();
+const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 
-export {firebase, database};
+export {firebase, database, googleAuthProvider};
 
 // database.ref("notes").set({
 //     id_1:{
