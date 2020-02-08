@@ -4,13 +4,13 @@ import Dashboard from './components/Dashboard'
 import AddTask from './components/AddTask'
 import EditTask from './components/EditTask'
 import ErrorPage from './components/ErrorPage'
-import Menu from './components/Menu'
 import 'react-dates/lib/css/_datepicker.css';
 import 'react-dates/initialize';
 import LoginPage from './components/LoginPage'
-import { createBrowserHistory } from 'history';
 import PrivateRoute from './routes/PrivateRoute'
+import PublicRoute from './routes/PublicRoute'
 
+import { createBrowserHistory } from 'history';
 export const history = createBrowserHistory();
 
 class App extends Component
@@ -21,11 +21,11 @@ class App extends Component
                 <div>
                     {/* <Menu></Menu> */}
                     <Switch>
-                        <Route
+                        <PublicRoute
                             path="/" component={LoginPage} exact 
                         />
                         <PrivateRoute
-                            path="/dashboard" component={Dashboard} exact 
+                            path="/dashboard" component={Dashboard} 
                         />
                         <PrivateRoute
                             path="/add" component={AddTask}

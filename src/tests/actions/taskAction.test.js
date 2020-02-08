@@ -10,9 +10,12 @@ const createMockStore = configureMockStore([thunk])
 //     database.ref("tasks").set(listTask).then(()=>done()); 
 // })
 
+const uid = "uidtesting";
+const currentState = {auth: {uid}}
+
 test("add task to firebase and store", (done)=>{
     // store giả lập, cũng có các method getStore, dispatch, subscrible
-    const store = createMockStore({});
+    const store = createMockStore(currentState);
 
     const newTask = {title: "Title", desc: "Description", deadline: 123}
     store.dispatch(addTaskApi(newTask)).then(()=>{
@@ -22,7 +25,7 @@ test("add task to firebase and store", (done)=>{
         expect(actions[0]).toEqual({type:"ADD_TASK", data:{taskId: expect.any(String), ...newTask}})
 
         // lấy data từ firebase và so sánh
-        database.ref(`tasks/${actions[0].data.taskId}`).once("value").then((snapshot)=>{
+        database.ref(`users/${uid}/tasks/${actions[0].data.taskId}`).once("value").then((snapshot)=>{
             expect(snapshot.val()).toEqual(newTask)
             done()
             // cái này quan trọng nè, để jest biết các async action đã thực hiện song
@@ -33,8 +36,8 @@ test("add task to firebase and store", (done)=>{
 
 test("get tasks from firebase and set to store", (done)=>{
 
-    const store = createMockStore({});
-    database.ref("tasks").set(listTask);
+    const store = createMockStore(currentState);
+    database.ref(`users/${uid}/tasks`).set(listTask);
     store.dispatch(setTaskApi()).then(()=>{
         const actions = store.getActions();
         expect(actions[0]).toEqual({

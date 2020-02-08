@@ -32,7 +32,9 @@ firebase.auth().onAuthStateChanged(function(user) {
             renderApp();
             // phải dùng chung object history được pass vào Router trong app.js
             // đó là lý do tại sao cần export history trong app.js
-            history.push("/dashboard")
+            if (history.location.pathname === '/') {
+                history.push('/dashboard');
+            }
         })
       console.log("log in");
     } else {

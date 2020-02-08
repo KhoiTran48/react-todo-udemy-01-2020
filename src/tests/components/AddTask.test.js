@@ -16,7 +16,7 @@ test("render AddTask", ()=>{
 
 test("handle submit", ()=>{
     wrapper.find("TaskForm").prop("handleSubmit")(listTask[0]);
-    expect(history.push).toHaveBeenLastCalledWith("/");
+    expect(history.push).toHaveBeenLastCalledWith("/dashboard");
     expect(addTaskApi).toHaveBeenLastCalledWith(listTask[0]);
 })
 

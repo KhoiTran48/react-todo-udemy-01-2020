@@ -1,19 +1,15 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import { Route, Redirect } from 'react-router-dom'
-import Menu from '../components/Menu'
 
-export class PrivateRoute extends Component {
+export class PublicRoute extends Component {
     render() {
         const {isAuthenticated, component: Component,...rest} = this.props
         return <Route {...rest} component={(props) => (
             isAuthenticated ? (
-              <div>
-                <Menu />
-                <Component {...props} />
-              </div>
+                <Redirect to="/dashboard" />
             ) : (
-                <Redirect to="/" />
+                <Component {...props}/>
               )
           )} />
     }
@@ -25,4 +21,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(PrivateRoute)
+export default connect(mapStateToProps)(PublicRoute)

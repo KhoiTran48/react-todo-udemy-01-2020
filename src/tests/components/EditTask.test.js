@@ -19,13 +19,13 @@ test("render", ()=>{
 test("edit task", ()=>{
     wrapper.find("TaskForm").props().handleSubmit(listTask[0]);
     expect(editTaskApiProp).toHaveBeenLastCalledWith(listTask[0]);
-    expect(history.push).toHaveBeenLastCalledWith("/")
+    expect(history.push).toHaveBeenLastCalledWith("/dashboard")
 })
 
 test("delete task", ()=>{
     wrapper.find("button").props().onClick();
     // wrapper.find("button").simulate("click");
     expect(deleteTaskApiProp).toHaveBeenLastCalledWith(listTask[0].taskId);
-    expect(history.push).toHaveBeenLastCalledWith("/")
+    expect(history.push).toHaveBeenLastCalledWith("/dashboard")
 })
 

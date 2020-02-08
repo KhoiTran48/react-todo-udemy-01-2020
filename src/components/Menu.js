@@ -7,7 +7,8 @@ export class Menu extends Component {
     render() {
         return (
             <div>
-                <NavLink to="/dashboard" exact>Dashboard</NavLink>
+                <NavLink to="/" exact>/ </NavLink>
+                <NavLink to="/dashboard">Dashboard</NavLink>
                 <NavLink to="/add">Add Task</NavLink>
                 <button onClick={this.props.signOut}>Logout</button>
             </div>

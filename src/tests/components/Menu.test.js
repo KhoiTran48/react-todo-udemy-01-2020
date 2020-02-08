@@ -9,7 +9,7 @@ test("render Menu correctly", ()=>{
     // expect(redenerer.getRenderOutput()).toMatchSnapshot();
 
     const wrapper = shallow(<Menu/>)
-    expect(wrapper.find("NavLink").length).toBe(2);
+    expect(wrapper.find("NavLink").length).toBe(3);
 
 })
 
